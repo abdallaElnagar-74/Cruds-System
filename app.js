@@ -36,21 +36,28 @@ submit.addEventListener("click", function () {
     count: count.value,
     category: category.value,
   };
-  if (form === "Create") {
-    if (count.value > 1) {
-      for (let i = 0; i < count.value; i++) {
+  if (
+    total.value != "" &&
+    price.value != "" &&
+    category.value != "" &&
+    count.value <= 100
+  ) {
+    if (form === "Create") {
+      if (count.value > 1) {
+        for (let i = 0; i < count.value; i++) {
+          products.push(item);
+        }
+      } else {
         products.push(item);
       }
     } else {
-      products.push(item);
+      submit.innerHTML = "Create";
+      count.classList.remove("d-none");
+      products[temp] = item;
     }
-  } else {
-    submit.innerHTML = "Create";
-    count.classList.remove("d-none");
-    products[temp] = item;
+    clearData();
   }
   localStorage.setItem("products", JSON.stringify(products));
-  clearData();
   showProducts();
 });
 function getTotal() {
@@ -154,13 +161,13 @@ function searchBy(id) {
   if (id == "category") {
     search.placeholder = "Search By Category";
     searchMood = "Category";
-    search.removeAttribute('disabled')
+    search.removeAttribute("disabled");
   } else {
     search.placeholder = "Search By Title";
     searchMood = "Title";
-    search.removeAttribute('disabled')
+    search.removeAttribute("disabled");
   }
-  search.focus()
+  search.focus();
 }
 
 function productsSearch(value) {
