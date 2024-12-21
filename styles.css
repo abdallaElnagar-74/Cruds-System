@@ -1,0 +1,32 @@
+body{
+    background-color: #222 !important;
+}
+.form-control{
+    background-color: #111 !important;
+    border-color: transparent !important;
+    color: white !important;
+    
+}
+.form-control:focus{
+    box-shadow: none !important;
+    outline: none !important;
+    border-color: transparent !important;
+    background-color: black !important;
+    transform: scale(1.06);
+    transition: all 1s;
+}
+.form-control::placeholder{
+    color: rgb(100, 98, 98) !important;
+}
+.btn{
+    background-color:#400159 !important;
+    color: white !important;
+    transition: all .3s !important;
+}
+.btn:hover{
+    background-color: #310044 !important;
+    letter-spacing: 1px;
+}
+tr{
+    vertical-align: middle !important;
+}
